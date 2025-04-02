@@ -20,8 +20,8 @@ public class AuthController(IConfiguration configuration) : ControllerBase
             Expires = DateTime.UtcNow.AddHours(1),
             SigningCredentials = new SigningCredentials(
                     new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256),
-            Issuer = configuration["Jwt:Issuer"],
-            Audience = configuration["Jwt:Audience"],
+            Issuer = configuration["JwtSettings:Issuer"],
+            Audience = configuration["JwtSettings:Audience"],
         };
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return Ok(new { token = tokenHandler.WriteToken(token) });

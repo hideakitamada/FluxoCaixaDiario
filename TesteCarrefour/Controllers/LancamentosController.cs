@@ -7,7 +7,7 @@ namespace TesteCarrefour.Controllers;
 
 [ApiController]
 [Route("api/lancamentos")]
-//[Authorize]
+[Authorize]
 
 public class LancamentosController(ILancamentoHandler handler) : ControllerBase
 {
